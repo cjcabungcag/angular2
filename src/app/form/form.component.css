@@ -1,0 +1,41 @@
+#templateSection{
+    padding:30px;
+    width:80%;
+    text-align: left;
+}
+
+.w3-container{
+    width:60%;
+}
+
+.w3-container #templateSection{
+    display: inline-block;
+}
+.temp{
+    background-color:skyblue;
+    padding: 2%;
+    color: floralwhite;
+    border-radius: 50%;
+}
+.err{
+    color:red;
+    font-size:12px;
+    text-align:center;
+}
+
+/* Set a style for the submit button */
+.btn {
+    background-color: steelblue;;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+
+input[type=text]:focus {
+  background-color: lightblue;
+}
+h1{
+    text-align: center;
+}

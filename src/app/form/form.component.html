@@ -1,0 +1,55 @@
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<body>
+  <div class="w3-container">
+    <div class="w3-panel w3-card-4" id="templateSection" >
+      <h1 class="temp">Registration Form</h1><hr>
+
+      <form (ngSubmit)="onSubmit(); sampleForm.reset()" #sampleForm="ngForm">
+
+            Name:
+            <input class="w3-input" name="Fname" [(ngModel)]="name" type="text" required 
+              placeholder="ex. Chilla Jean" #Fname="ngModel" />
+    
+               <div *ngIf="Fname.invalid && (Fname.dirty || Fname.touched)">
+                    <div *ngIf="Fname.errors.required" class="err" >
+                        * Firstname is required!
+                    </div>
+                    <!-- <div *ngIf="Fname.errors.minlength" class="err">
+                       * Firstname must be at least 4 characters long
+                    </div> -->
+                </div><br>
+            Username:
+                <input class="w3-input" name="Lname" [(ngModel)]="username" type="text" required 
+                  placeholder="ex. Cabungcag" #Lname="ngModel" />
+                   <div *ngIf="Lname.invalid && (Lname.dirty || Lname.touched)">
+                        <div *ngIf="Lname.errors.required" class="err" >
+                            * Lastname is required!
+                        </div>
+                    </div><br>
+            
+            Email: 
+            <input class="w3-input" name="emailadd" [(ngModel)]="email" type="email" 
+            placeholder="ex. cj@gmail.com" #emailadd="ngModel"
+            email pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required/>
+    
+             <div *ngIf="emailadd.invalid && (emailadd.dirty || emailadd.touched)">
+                  <div *ngIf="emailadd.errors.required" class="err" >
+                      * Email address is required!
+                  </div>
+                  <div *ngIf="emailadd.errors.pattern" class="err">
+                      * Please enter a valid email address!
+                  </div>
+              </div><br>
+
+        <button  [disabled]="!sampleForm.form.valid" type="submit" >{{submit}}</button>
+      </form>
+    </div>
+  </div><br><br>
+  <hr>
+
+<app-tablelist [parentdata]='dataArr' (editData)='editdata($event)' (deleteData)='deleteData($event)'></app-tablelist>
+
+</body>

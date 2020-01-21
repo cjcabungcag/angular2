@@ -1,0 +1,36 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+
+<div class="w3-container-4">
+  <div class="w3-panel w3-card" id="templateSection">
+        <h1>Template Driven</h1>
+        <form (ngSubmit)="onSubmit()" #sampleForm="ngForm">
+          <input name="name" [(ngModel)]="fullname" type="text" required minlength="4" 
+              placeholder="Please enter a name" #name="ngModel"/><br /><br />
+      
+          <div *ngIf="name.invalid && (name.dirty || name.touched)">
+            <div *ngIf="name.errors.required">Name is required</div>
+            <div *ngIf="name.errors.minlength"> Name must be at least 4 characters long.</div>
+          </div>
+          <button [disabled]="!sampleForm.form.valid">Submit</button>
+        </form>
+      </div>
+</div> 
+
+<!-- <div class="w3-container-4">
+    <h1>Data Driven</h1>
+    <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
+      <input
+        type="text"
+        formControlName="firstname"
+        placeholder="Please enter a name"
+      /><br />
+    <button [disabled]="!reactiveForm.valid">Submit</button>
+    </form>
+</div> -->
+
+
+
+</body>
+
