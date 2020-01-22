@@ -13,6 +13,7 @@
       <td>{{ item.username }}</td>
       <td>{{ item.email }}</td>
       <td>
+        <button routerLink='/view/{{item.id}}' class="btnView">View</button>
         <button (click)="onEdit(item)" class="btnUpdate">Update</button>
         <button (click)="onDelete(item)" class="btnDelete">Delete</button>
       </td>

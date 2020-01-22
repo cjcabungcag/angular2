@@ -1,0 +1,12 @@
+<div class="header">
+        <a routerLink="/home" routerLinkActive="active">Home Page |</a>
+        <a routerLink="/dashboard" routerLinkActive="active"> Dashboard</a>
+</div>
+
+<div class="w3-container" *ngFor="let item of userInfo" >
+    <h1>Personal Information</h1><hr>
+    <h3>ID: {{ item.id}}</h3>
+    <h3>Name: {{ item.name}}</h3>
+    <h3>Username: {{ item.username}}</h3>
+    <h3>Email: {{ item.email}}</h3>
+</div>

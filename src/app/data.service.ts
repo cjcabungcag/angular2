@@ -18,6 +18,10 @@ export class DataService {
 
   constructor(private _http: HttpClient) {}
 
+  viewData(id: any): Observable<any>{
+    return this._http.get<any>(`${this.apiUrl}/${id}`, httpOptions)
+  }
+
   getUsers(): Observable<any> {
     return this._http.get<User[]>(this.apiUrl);
   }

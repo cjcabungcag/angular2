@@ -35,7 +35,9 @@ export class FormComponent implements OnInit {
           element.email = this.email;
         }
       });
-      this.edited = false
+      
+      this.edited = false;
+      alert("Data Successfully Updated!")
     } else {
 
       this.newData = new User();
@@ -54,6 +56,7 @@ export class FormComponent implements OnInit {
       });
 
       this.submit = "SUBMIT"; 
+      alert("New Data Submitted!")
       console.log(this.dataArr);
     }
     this.showID =false
@@ -75,5 +78,6 @@ export class FormComponent implements OnInit {
       console.log(response);
       this.dataArr.splice(this.dataArr.indexOf(object), 1)
     })
+    alert("Data Successfully Deleted!")
   }
 }

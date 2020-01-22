@@ -1,0 +1,17 @@
+a{
+    font-size: 25px;
+    color: white;
+    
+}
+a:hover{
+    color: black
+}
+
+.header{
+    background-color: rgb(117, 197, 218);
+    padding: 4%;
+}
+.pic2{
+    width:100%;
+
+}

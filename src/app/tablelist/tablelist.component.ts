@@ -28,5 +28,6 @@ export class TablelistComponent implements OnInit {
     this.deleteData.emit(event);
   }
   
+  
 
 }

@@ -17,17 +17,46 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormComponent } from './form/form.component';
 import { TablelistComponent } from './tablelist/tablelist.component';
 
+import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { ErrorComponent } from './error/error.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ViewComponent } from './view/view.component';
+
+
+
+const appRoutes: Routes= [
+  {path:'', component: HomeComponent},
+  {path:'notFound', component: ErrorComponent},
+  {path:'view/:id', component: ViewComponent},
+  {path:'dashboard', component: DashboardComponent},
+  {path:'home', component: HomeComponent},
+  {path: '**', redirectTo: '/notFound'}
+];
+
 
 @NgModule({
-  declarations: [AppComponent, ExternalComponent, ManualComponent, FormComponent,  TablelistComponent],
+  declarations: [
+    AppComponent, 
+    ExternalComponent, 
+    ManualComponent, 
+    FormComponent,  
+    TablelistComponent, 
+    HomeComponent, 
+    ErrorComponent,
+    DashboardComponent,
+    ViewComponent,
+
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    RouterModule.forRoot(appRoutes),
 
-    BrowserAnimationsModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

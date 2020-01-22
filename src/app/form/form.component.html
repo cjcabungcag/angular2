@@ -1,6 +1,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
 
 <body>
   <div class="w3-container">
@@ -16,7 +17,7 @@
     
                <div *ngIf="Fname.invalid && (Fname.dirty || Fname.touched)">
                     <div *ngIf="Fname.errors.required" class="err" >
-                        * Firstname is required!
+                        * Name is required!
                     </div>
                     <!-- <div *ngIf="Fname.errors.minlength" class="err">
                        * Firstname must be at least 4 characters long
@@ -27,7 +28,7 @@
                   placeholder="ex. Cabungcag" #Lname="ngModel" />
                    <div *ngIf="Lname.invalid && (Lname.dirty || Lname.touched)">
                         <div *ngIf="Lname.errors.required" class="err" >
-                            * Lastname is required!
+                            * Username is required!
                         </div>
                     </div><br>
             
