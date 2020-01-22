@@ -2,6 +2,7 @@
     padding:30px;
     width:80%;
     text-align: left;
+    margin: 10%;
 }
 
 .w3-container{
@@ -12,7 +13,7 @@
     display: inline-block;
 }
 .temp{
-    background-color:skyblue;
+    background-color:rgb(76, 172, 175);
     padding: 2%;
     color: floralwhite;
     border-radius: 50%;
@@ -25,12 +26,11 @@
 
 /* Set a style for the submit button */
 .btn {
-    background-color: steelblue;;
-    color: white;
     padding: 15px 20px;
     border: none;
     cursor: pointer;
     width: 100%;
+    font-weight: bold;
   }
 
 input[type=text]:focus {

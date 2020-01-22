@@ -15,12 +15,11 @@ import { ManualComponent } from "./manual/manual.component";
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormComponent } from './form/form.component';
-import { EditformComponent } from './editform/editform.component';
 import { TablelistComponent } from './tablelist/tablelist.component';
 
 
 @NgModule({
-  declarations: [AppComponent, ExternalComponent, ManualComponent, FormComponent, EditformComponent, TablelistComponent],
+  declarations: [AppComponent, ExternalComponent, ManualComponent, FormComponent,  TablelistComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

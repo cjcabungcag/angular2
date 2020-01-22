@@ -8,27 +8,28 @@ import { DataService } from "../data.service";
   styleUrls: ["./form.component.css"]
 })
 export class FormComponent implements OnInit {
-  id: number;
+  id: any;
   name: string;
   username: string;
   email: string;
+  edited = false;
   submit = "SUBMIT";
   dataArr: User[] = [];
-  edited = false;
 
-  constructor(private dataService: DataService) {}
+  newData: any;
+  showID = false;
 
+  constructor(private dataService: DataService) {
+    this.newData = new User;
+  }
   ngOnInit() {
     return this.dataService.getUsers().subscribe(data => (this.dataArr = data));
   }
-  newData: any;
-  
+
   onSubmit() {
-    console.log(this.edited)
     if (this.edited) {
-      console.log("sadsg")
       this.dataArr.forEach(element => {
-        if(element.id ==this.id ){
+        if(element.id == this.id ){
           element.name = this.name;
           element.username = this.username;
           element.email = this.email;
@@ -36,34 +37,43 @@ export class FormComponent implements OnInit {
       });
       this.edited = false
     } else {
-      console.log("test")
+
       this.newData = new User();
-      this.newData.id = this.dataArr.length + 1;
+
+      this.newData.id = this.dataArr.reduce(
+        (max, array) => (array.id > max ? array.id : max),
+        this.dataArr[0].id)+1;
+      
       this.newData.name = this.name;
       this.newData.username = this.username;
       this.newData.email = this.email;
 
-      this.dataService.addUser(this.dataArr).subscribe(user => {
+      this.dataService.addUser(this.newData).subscribe(newData => {
+        console.log(newData);
         return this.dataArr.push(this.newData);
       });
-      this.submit = "SUBMIT";
+
+      this.submit = "SUBMIT"; 
       console.log(this.dataArr);
     }
+    this.showID =false
   }
 
   editdata(object: any) {
     this.edited = true;
-    console.log(this.edited)
-
     this.id = object.id;
     this.name = object.name;
     this.username = object.username;
     this.email = object.email;
+    this.showID =true;
 
-    this.submit = "SAVE";
+    this.submit = "SAVE"; 
   }
 
   deleteData(object:any){
-    this.dataArr.splice(this.dataArr.indexOf(object), 1)
+    this.dataService.deleteUser(object.id).subscribe(response =>{
+      console.log(response);
+      this.dataArr.splice(this.dataArr.indexOf(object), 1)
+    })
   }
 }

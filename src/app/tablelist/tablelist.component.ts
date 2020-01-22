@@ -8,11 +8,6 @@ import { DataService } from '../data.service';
   styleUrls: ['./tablelist.component.css']
 })
 export class TablelistComponent implements OnInit {
-
-  name: string;
-  username: string;
-  email: string;
-
   constructor(){}
 
   ngOnInit() {
